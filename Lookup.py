@@ -21,7 +21,7 @@ class DiscordClient(discord.Client):
 async def fetch_by_id(request):
     uid = request.match_info["uid"]
     if not uid.isnumeric():
-        return web.Response(text = json.dumps({error:"UID must be numeric"}))
+        return web.Response(text = json.dumps({"error":"UID must be numeric"}))
     print("[INFO] fetchById: Searching for uid:", uid)
     discordUser = await client.fetch_user(uid)
     user = {
